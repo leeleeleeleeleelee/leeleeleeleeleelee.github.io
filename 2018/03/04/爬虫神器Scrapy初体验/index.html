@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="//roccor.me">
   <title>爬虫神器Scrapy初体验 | Roccor的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前言学习Python，大多数入门都选择爬虫。对于初学者而言，这只蜘蛛简单易学，几行简单的代码，就可以得到一个可视化的结果，稍微动一下脑子还能玩出很多骚东西。 之前爬取过糗事百科、学校教务处、妹子图、斗图啦、淘宝某产品、汤不热、1024（为了学习！）等等等等，自己写的爬虫虽然考虑了很多，但是还是有一些缺陷，直到遇到了Scrapy。">
+  <meta name="description" content="前言学习Python，大多数入门都选择爬虫。对于初学者而言，这只蜘蛛简单易学，几行简单的代码，就可以得到一个可视化的结果，稍微动一下脑子还能玩出很多骚东西。 之前爬取过糗事百科、学校教务处、妹子图、斗图啦、淘宝某产品、汤不热等等等等，自己写的爬虫虽然考虑了很多，但是还是有一些缺陷，直到遇到了Scrapy。">
 <meta name="keywords" content="爬虫,框架">
 <meta property="og:type" content="article">
 <meta property="og:title" content="爬虫神器Scrapy初体验">
 <meta property="og:url" content="//roccor.me/2018/03/04/爬虫神器Scrapy初体验/index.html">
 <meta property="og:site_name" content="Roccor的博客">
-<meta property="og:description" content="前言学习Python，大多数入门都选择爬虫。对于初学者而言，这只蜘蛛简单易学，几行简单的代码，就可以得到一个可视化的结果，稍微动一下脑子还能玩出很多骚东西。 之前爬取过糗事百科、学校教务处、妹子图、斗图啦、淘宝某产品、汤不热、1024（为了学习！）等等等等，自己写的爬虫虽然考虑了很多，但是还是有一些缺陷，直到遇到了Scrapy。">
+<meta property="og:description" content="前言学习Python，大多数入门都选择爬虫。对于初学者而言，这只蜘蛛简单易学，几行简单的代码，就可以得到一个可视化的结果，稍微动一下脑子还能玩出很多骚东西。 之前爬取过糗事百科、学校教务处、妹子图、斗图啦、淘宝某产品、汤不热等等等等，自己写的爬虫虽然考虑了很多，但是还是有一些缺陷，直到遇到了Scrapy。">
 <meta property="og:image" content="//roccor.me/assets/blogImg/spider.jpeg">
-<meta property="og:updated_time" content="2018-03-03T17:25:19.000Z">
+<meta property="og:updated_time" content="2018-04-09T14:13:45.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="爬虫神器Scrapy初体验">
-<meta name="twitter:description" content="前言学习Python，大多数入门都选择爬虫。对于初学者而言，这只蜘蛛简单易学，几行简单的代码，就可以得到一个可视化的结果，稍微动一下脑子还能玩出很多骚东西。 之前爬取过糗事百科、学校教务处、妹子图、斗图啦、淘宝某产品、汤不热、1024（为了学习！）等等等等，自己写的爬虫虽然考虑了很多，但是还是有一些缺陷，直到遇到了Scrapy。">
+<meta name="twitter:description" content="前言学习Python，大多数入门都选择爬虫。对于初学者而言，这只蜘蛛简单易学，几行简单的代码，就可以得到一个可视化的结果，稍微动一下脑子还能玩出很多骚东西。 之前爬取过糗事百科、学校教务处、妹子图、斗图啦、淘宝某产品、汤不热等等等等，自己写的爬虫虽然考虑了很多，但是还是有一些缺陷，直到遇到了Scrapy。">
 <meta name="twitter:image" content="//roccor.me/assets/blogImg/spider.jpeg">
   
     <link rel="alternative" href="/atom.xml" title="Roccor的博客" type="application/atom+xml">
@@ -172,7 +172,7 @@
       
         <p><img src="/assets/blogImg/spider.jpeg" style="zoom:50%"></p>
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>学习Python，大多数入门都选择爬虫。对于初学者而言，这只蜘蛛简单易学，几行简单的代码，就可以得到一个可视化的结果，稍微动一下脑子还能玩出很多骚东西。</p>
-<p>之前爬取过糗事百科、学校教务处、妹子图、斗图啦、淘宝某产品、汤不热、1024（为了学习！）等等等等，自己写的爬虫虽然考虑了很多，但是还是有一些缺陷，直到遇到了Scrapy。</p>
+<p>之前爬取过糗事百科、学校教务处、妹子图、斗图啦、淘宝某产品、汤不热等等等等，自己写的爬虫虽然考虑了很多，但是还是有一些缺陷，直到遇到了Scrapy。</p>
 <a id="more"></a>
 <p>Scrapy是一个为了爬取网站数据，提取结构性数据而编写的应用框架。 可以应用在包括数据挖掘，信息处理或存储历史数据等一系列的程序中。</p>
 <p>通俗一点说，为什么我们要用Scrapy。它是一个成熟的框架，我们不需要去考虑一些内部的东西，比如下载模块我们不需要自己写，重要的是它使用异步模式，可以加快我们的抓取，毕竟异步是一件很麻烦的事情，我们需要做的只是专注于我们需要的内容（小姐姐）。</p>
